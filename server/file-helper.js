@@ -30,7 +30,7 @@ module.exports = {
 		if(date){
 			return notes.filter((x) => x.date === date)[0];
 		} else {
-			return '';
+			return null;
 		}
 	}	
 };

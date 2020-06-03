@@ -18,4 +18,5 @@ app.get('/notes/:date(\\d{4}-\\d{2}-\\d{2})', (req, res) => {
 	console.log('gets a note', note);
 	res.send('today\'s wisdom ' + note.note);
 });
+
 app.listen(port, () => {console.log('server listening on', port);});
