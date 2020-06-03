@@ -4,11 +4,14 @@ Module.register("MMM-SentencePerDay",{
 		text: 'sentence everyday!',
 		count: 0
 	},
+	
+	note:null,
 
 	getDom: function(){
 		Log.log('MMM-sentencePerDay getDom');
 		var wrapper = document.createElement("div");
-		wrapper.innerHTML = 'hello MMM-SentencePerDay ' + this.config.count;
+		if(this.note === null) return wrapper;
+		wrapper.innerHTML = this.note;
 		return wrapper;
 	},
 
@@ -24,9 +27,9 @@ Module.register("MMM-SentencePerDay",{
 	start: function(){
 		Log.log('MMM-SentencePerDay start');
 		setInterval(() => {
-			this.config.count=this.config.count+1;
+			//this.config.count=this.config.count+1;
 			this.getNote();
-			this.updateDom();
+			//this.updateDom();
 		},1000);
 	},
 
@@ -34,6 +37,11 @@ Module.register("MMM-SentencePerDay",{
 		fetch('http://localhost:9000/notes/'+ this.getDateString())
 		.then((res) => {
 			console.log(res)
+			res.json().then((note) => {
+				this.note = note;
+				console.log('this.note =', this.note);
+				this.UpdateDom();
+			});
 		});
 	},
 
