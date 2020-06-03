@@ -39,9 +39,10 @@ Module.register("MMM-SentencePerDay",{
 			console.log(res)
 			res.json().then((note) => {
 				this.note = note;
-				console.log('this.note =', this.note);
+				console.log('this.note =', this.note.note);
 				this.UpdateDom();
 			});
+			
 		});
 	},
 
