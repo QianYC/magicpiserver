@@ -8,7 +8,14 @@ fs.load();
 const app = express();
 const port = 9000;
 
+//encode | decode url
 app.use(bodyParser.urlencoded({extended: true}));
+
+//cors config
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'localhost');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+});
 
 // get /notes/:date
 app.get('/notes/:date(\\d{4}-\\d{2}-\\d{2})', (req, res) => {

@@ -30,7 +30,7 @@ Module.register("MMM-SentencePerDay",{
 		},1000);
 	},
 
-	getNote: () => {
+	getNote: function(){
 		fetch('http://localhost:9000/notes/'+ this.getDateString())
 		.then((res) => {
 			console.log(res)
