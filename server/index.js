@@ -2,6 +2,7 @@ console.log('index.js started');
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('./file-helper.js');
+const bluetooth = require('./bluez-helper.js');
 
 fs.load();
 

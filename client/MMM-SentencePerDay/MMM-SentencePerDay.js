@@ -1,8 +1,7 @@
 Module.register("MMM-SentencePerDay",{
 	//default module config
 	defaults: {
-		text: 'sentence everyday!',
-		count: 0
+		
 	},
 	
 	note:null,
@@ -27,10 +26,8 @@ Module.register("MMM-SentencePerDay",{
 	start: function(){
 		Log.log('MMM-SentencePerDay start');
 		setInterval(() => {
-			//this.config.count=this.config.count+1;
 			this.getNote();
-			//this.updateDom();
-		},1000);
+		},100000);
 	},
 
 	getNote: function(){
@@ -38,9 +35,9 @@ Module.register("MMM-SentencePerDay",{
 		.then((res) => {
 			console.log(res)
 			res.json().then((note) => {
-				this.note = note;
-				console.log('this.note =', this.note.note);
-				this.UpdateDom();
+				this.note = note.note;
+				console.log('this.note =', this.note);
+				this.updateDom();
 			});
 			
 		});
