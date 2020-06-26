@@ -27,7 +27,7 @@ Module.register("MMM-SentencePerDay",{
 		Log.log('MMM-SentencePerDay start');
 		setInterval(() => {
 			this.getNote();
-		},100000);
+		}, 100000);
 	},
 
 	getNote: function(){
