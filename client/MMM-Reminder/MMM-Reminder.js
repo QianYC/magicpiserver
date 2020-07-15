@@ -7,7 +7,7 @@ Module.register("MMM-Reminder",{
 	reminders:null,
 	currentIndex: -1,
 
-	getDom1: function(){
+	getDom: function(){
 		Log.log('MMM-Reminder getDom');
 		this.currentIndex = -1;
 		var wrapper = document.createElement("div");
@@ -28,7 +28,7 @@ Module.register("MMM-Reminder",{
 		document.getElementsByClassName("carousel-content")[0].innerHTML = content;
 	},
 
-	getDom: function(){
+	getDom1: function(){
 		Log.log('MMM-Reminder getDom');
 		var wrapper = document.createElement("div");
 		if(this.reminders === null) return wrapper;
