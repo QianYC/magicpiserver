@@ -30,7 +30,7 @@ Module.register("MMM-Reminder",{
 		let content = '';
 		for(let i=0; i<this.size; i++){
 			this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
-			content += '<div class="reminder-item">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
+			content += '<div class="reminder-item" style="width: 100%; display:flex; justify-content: flex-start; ">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content" style="margin-right: 10px">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
 		}
 		document.getElementsByClassName("carousel-content")[0].innerHTML = content;
 	},
