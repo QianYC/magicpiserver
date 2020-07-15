@@ -10,7 +10,6 @@ Module.register("MMM-Reminder",{
 	getDom1: function(){
 		Log.log('MMM-Reminder getDom');
 		this.currentIndex = -1;
-		this.scroll();
 		var wrapper = document.createElement("div");
 		if(this.reminders === null) return wrapper;
 		let innerHtml = '';
@@ -57,8 +56,8 @@ Module.register("MMM-Reminder",{
 			this.getReminders();
 
 		}, 10000);
-		//this.getReminders();
-		//setInterval(this.scroll, 2000);
+		this.getReminders();
+		setInterval(this.scroll, 2000);
 	},
 
 	getReminders: function(){
