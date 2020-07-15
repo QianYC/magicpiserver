@@ -9,7 +9,7 @@ Module.register("MMM-Reminder",{
 
 	getDom: function(){
 		Log.log('MMM-Reminder getDom');
-		this.currentIndex = -1;
+		//this.currentIndex = -1;
 		var wrapper = document.createElement("div");
 		if(this.reminders === null) return wrapper;
 		let innerHtml = '';
