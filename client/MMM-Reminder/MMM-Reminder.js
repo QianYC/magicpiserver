@@ -26,7 +26,7 @@ Module.register("MMM-Reminder",{
 		}
 		this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
 		let content = '<div class="reminder-item">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
-		document.getElementByClassName("carousel-content")[0].innerHTML = content;
+		document.getElementsByClassName("carousel-content")[0].innerHTML = content;
 	},
 
 	getDom1: function(){
