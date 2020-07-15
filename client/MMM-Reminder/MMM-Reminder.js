@@ -7,7 +7,7 @@ Module.register("MMM-Reminder",{
 	reminders:null,
 	currentIndex: -1,
 
-	getDom: function(){
+	getDom1: function(){
 		Log.log('MMM-Reminder getDom');
 		this.currentIndex = -1;
 		this.scroll();
@@ -29,7 +29,7 @@ Module.register("MMM-Reminder",{
 		document.getElementsByClassName("carousel-content")[0].innerHTML = content;
 	},
 
-	getDom1: function(){
+	getDom: function(){
 		Log.log('MMM-Reminder getDom');
 		var wrapper = document.createElement("div");
 		if(this.reminders === null) return wrapper;
@@ -57,8 +57,8 @@ Module.register("MMM-Reminder",{
 			this.getReminders();
 
 		}, 10000);
-		this.getReminders();
-		setInterval(this.scroll, 2000);
+		//this.getReminders();
+		//setInterval(this.scroll, 2000);
 	},
 
 	getReminders: function(){
