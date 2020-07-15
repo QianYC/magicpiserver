@@ -20,7 +20,9 @@ Module.register("MMM-Reminder",{
 	},
 
 	scroll: function(){
+		Log.log('scroll');
 		if(!this.reminders || this.reminders.length <= 0){
+			Log.log('return');
 			return;
 		}
 		this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
@@ -57,7 +59,9 @@ Module.register("MMM-Reminder",{
 
 		}, 10000);
 		this.getReminders();
-		setInterval(this.scroll, 2000);
+		setInterval(() => {
+			this.scroll();
+		}, 2000);
 	},
 
 	getReminders: function(){
