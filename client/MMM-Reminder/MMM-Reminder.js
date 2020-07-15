@@ -17,11 +17,13 @@ Module.register("MMM-Reminder",{
 		innerHtml = '<div class="carousel"><div class="carousel-content"></div></div>'
 		wrapper.innerHTML = innerHtml;
 		
-		
 		return wrapper;
 	},
 
 	scroll: function(){
+		if(!this.reminders || this.reminders.length <= 0){
+			return;
+		}
 		this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
 		let content = '<div class="reminder-item">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
 		document.getElementByClassName("carousel-content")[0].innerHTML = content;
@@ -55,6 +57,7 @@ Module.register("MMM-Reminder",{
 			this.getReminders();
 
 		}, 10000);
+		this.getReminders();
 		setInterval(this.scroll, 2000);
 	},
 
