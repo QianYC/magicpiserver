@@ -58,7 +58,7 @@ Module.register("MMM-Reminder",{
 			this.getReminders();
 
 		}, 10000);
-		this.getReminders();
+		this.getRemindersAsync().then(() => {this.updateDom();});
 		setInterval(() => {
 			this.scroll();
 		}, 2000);
@@ -74,6 +74,21 @@ Module.register("MMM-Reminder",{
 				//this.updateDom();
 			});
 			
+		});
+	},
+
+	getRemindersAsync: function(){
+		return new Promise((resolve, reject) => {
+			fetch('http://localhost:9000/reminders')
+			.then((res) => {
+				console.log(res)
+				res.json().then((reminders) => {
+					this.reminders = reminders;
+					console.log('this.reminders =', this.reminders);
+					//this.updateDom();
+				});
+			resolve();
+			});
 		});
 	}
 });
