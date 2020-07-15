@@ -6,6 +6,8 @@ Module.register("MMM-Reminder",{
 	
 	reminders:null,
 	currentIndex: -1,
+	// 走马灯窗口大小
+	size: 3,
 
 	getDom: function(){
 		Log.log('MMM-Reminder getDom');
@@ -25,8 +27,11 @@ Module.register("MMM-Reminder",{
 			Log.log('return');
 			return;
 		}
-		this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
-		let content = '<div class="reminder-item">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
+		let content = '';
+		for(let i=0; i<this.size; i++){
+			this.currentIndex = (this.currentIndex + 1) % this.reminders.length;
+			content += '<div class="reminder-item">' + '<span class="reminder-date">' + this.reminders[this.currentIndex].date + '</span>' + '<span class="reminder-content">' + this.reminders[this.currentIndex].reminder + '</span>' + '</div>';
+		}
 		document.getElementsByClassName("carousel-content")[0].innerHTML = content;
 	},
 
@@ -88,7 +93,6 @@ Module.register("MMM-Reminder",{
 					//this.updateDom();
 					resolve();
 				});
-			//resolve();
 			});
 		});
 	}
