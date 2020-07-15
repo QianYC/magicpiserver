@@ -71,7 +71,7 @@ Module.register("MMM-Reminder",{
 			res.json().then((reminders) => {
 				this.reminders = reminders;
 				console.log('this.reminders =', this.reminders);
-				this.updateDom();
+				//this.updateDom();
 			});
 			
 		});
