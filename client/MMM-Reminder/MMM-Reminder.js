@@ -58,7 +58,8 @@ Module.register("MMM-Reminder",{
 			this.getReminders();
 
 		}, 10000);
-		this.getRemindersAsync().then(() => {this.updateDom();});
+		this.getReminders();
+		this.updateDom();
 		setInterval(() => {
 			this.scroll();
 		}, 2000);
