@@ -87,8 +87,9 @@ Module.register("MMM-Reminder",{
 					this.reminders = reminders;
 					console.log('this.reminders =', this.reminders);
 					//this.updateDom();
+					resolve();
 				});
-			resolve();
+			//resolve();
 			});
 		});
 	}
